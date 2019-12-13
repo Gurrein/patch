@@ -16,8 +16,7 @@ PROCEED="n"
 echo "Select ROIs? (y/n)"
 read PROCEED
 if [ $PROCEED == "y" ]; then
-	matlab.exe -r "addpath(genpath('C:/Users/$username/Desktop/patch')), getROIs('$1'), quit"
-
+	/mnt/c/"Program Files"/MATLAB/*/bin/matlab.exe -r "addpath(genpath('C:/Users/$username/Desktop/patch')), getROIs('$1'), quit" # Launches oldest version of MATLAB installed on the computer.
 	PROCEED="n"
 	while [ $PROCEED != "y" ]
 	do
