@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=split
-#SBATCH --output=/om/user/%u/log/split_%j.txt
+#SBATCH --output=~/log/split_%j.txt
 #SBATCH -N 1
 #SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=5000

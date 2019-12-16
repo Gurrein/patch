@@ -9,9 +9,9 @@ echo
 echo "Present finalTracks files:"
 echo "----------------------------------------"
 
-for video in /om/user/$USER/data/patch_data_cluster/$1/*; do
+for video in /om2/user/$USER/data/patch_data_cluster/$1/*; do
 	if [ -e $video/*finalTracks* ]; then
-		echo ${video#/om/user/$USER/data/patch_data_cluster/$1/}
+		echo ${video#/om2/user/$USER/data/patch_data_cluster/$1/}
 	fi
 done
 
@@ -21,9 +21,9 @@ echo "Missing finalTracks files:"
 echo "----------------------------------------"
 
 missing=0
-for video in /om/user/$USER/data/patch_data_cluster/$1/*; do
+for video in /om2/user/$USER/data/patch_data_cluster/$1/*; do
 	if [ ! -e $video/*finalTracks* ]; then
-		echo ${video#/om/user/$USER/data/patch_data_cluster/$1/}
+		echo ${video#/om2/user/$USER/data/patch_data_cluster/$1/}
 		missing=1
 	fi
 done
@@ -39,9 +39,9 @@ echo
 echo
 
 if [ $proceed == "y" ]; then
-for video in /om/user/$USER/data/patch_data_cluster/$1/*; do
+for video in /om2/user/$USER/data/patch_data_cluster/$1/*; do
         if [ ! -e $video/*finalTracks* ]; then
-                echo ${video#/om/user/$USER/data/patch_data_cluster/$1/}:
+                echo ${video#/om2/user/$USER/data/patch_data_cluster/$1/}:
 		echo "----------------------------------------"
 		ls -1 $video
 		echo
@@ -55,9 +55,9 @@ echo "Reprocess folders with missing finalTracks files? (y/n)"
 read repro
 echo
 if [ $repro == "y" ]; then
-	for video in /om/user/$USER/data/patch_data_cluster/$1/*; do
+	for video in /om2/user/$USER/data/patch_data_cluster/$1/*; do
 		if [ -e $video/*.working ]; then
-			echo "Removed ${video#/om/user/$USER/data/patch_data_cluster/$1/}.working"
+			echo "Removed ${video#/om2/user/$USER/data/patch_data_cluster/$1/}.working"
 			echo
 			rm $video/*.working
 		fi

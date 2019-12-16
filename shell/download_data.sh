@@ -9,7 +9,7 @@ read transfer
 if [ $transfer == "y" ]; then
         mv /mnt/g/patch_data_local/$1 /mnt/g/patch_data_local/$1_unsplit
         mkdir /mnt/g/patch_data_local/$1
-	for file in $2@openmind.mit.edu:/om/user/$USER/data/patch_data_cluster/$1/*; do
+	for file in $2@openmind.mit.edu:/om2/user/$USER/data/patch_data_cluster/$1/*; do
 			# Copying over only the arguably most important files to conserve space.
 			scp $file/*finalTracks* /mnt/g/patch_data_local/$1
 			scp $file/*background* /mnt/g/patch_data_local/$1
@@ -24,13 +24,13 @@ if [ $transfer == "y" ]; then
         	mv $file /mnt/g/patch_data_local/$1/$d
 	done
 fi
-# Launch MATLAB and run getAllCleanFinalRefeedTracks
+# Launch MATLAB and automatically detect lawn encounters.
 echo "Get refeed tracks? (y/n)"
 read run1
 if [ $run1 == "y" ]; then
         matlab.exe -r "getRefeed('$1')"
 fi
-# Launch MATLAB and
+# Launch MATLAB and manually check encounters.
 echo "Check encounters? (y/n)"
 read run2
 if [ $run2 == "y" ]; then

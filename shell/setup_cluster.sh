@@ -4,7 +4,7 @@
 
 # 1. Download patch files from github to home directory
 cd ~/
-git fetch https://github.com/proudofu/patch/tree/cluster
+git clone https://github.com/proudofu/patch/tree/cluster
 
 # 2. Make bin folder and add all shell scripts for easy access.
 cd ~/
@@ -15,8 +15,11 @@ done
 source .bash_profile # Activate changes
 
 # 3. Make folders for data and move all measureCam files there
-mkdir /om/user/$USER/data/
-mkdir /om/user/$USER/data/patch_videos_cluster/
+mkdir /om2/user/$USER/data/
+mkdir /om2/user/$USER/data/patch_videos_cluster/
 for file in /home/$USER/patch/measure/*; do
-	cp $file /om/user/$USER/data/patch_videos_cluster/
+	cp $file /om2/user/$USER/data/patch_videos_cluster/
 done
+
+# 4. Make log folder to store analysis logs (i.e. the files containing MATLAB output for each tracking job).
+mkdir /om2/user/$USER/log/

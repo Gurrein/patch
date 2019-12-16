@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script does the following:
-# 1. Launches MATLAB on local machine so user can select ROIs of separate plates to split into separate videos
-# 2. Remounts hard drive (necessary if it has been unplugged to collect data from rig manually; ideally data is
+# 1. Launch MATLAB on local machine so user can select ROIs of separate plates to split into separate videos
+# 2. Remount hard drive (necessary if it has been unplugged to collect data from rig manually; ideally data is
 #    transferred using scp, avoiding unplugging the drive ever)
 # 3. Copy data to the cluster for analysis
 
@@ -16,7 +16,12 @@ PROCEED="n"
 echo "Select ROIs? (y/n)"
 read PROCEED
 if [ $PROCEED == "y" ]; then
-	/mnt/c/"Program Files"/MATLAB/*/bin/matlab.exe -r "addpath(genpath('C:/Users/$username/Desktop/patch')), getROIs('$1'), quit" # Launches oldest version of MATLAB installed on the computer.
+        mat_versions=(/mnt/c/"Program Files"/MATLAB/*)
+        num_versions=${#mat_versions[@]}
+        let latest_version_index=$num_versions-1
+        latest_version_path=${mat_versions[$latest_version_index]}
+        latest_version=${latest_version_path##*/}
+	/mnt/c/"Program Files"/MATLAB/$latest_version/bin/matlab.exe -r "addpath(genpath('C:/Users/$username/Desktop/patch')), getROIs('$1'), quit" # Launches newest version of MATLAB installed on the computer.
 	PROCEED="n"
 	while [ $PROCEED != "y" ]
 	do
@@ -38,4 +43,4 @@ fi
 
 # 3. Copy over folders containing video files and new fields.mat files
 echo "Copying $1 to $2"
-scp -r /mnt/g/patch_data_local/$1 $2@openmind.mit.edu:/om/user/$2/data/patch_data_cluster
+scp -r /mnt/g/patch_data_local/$1 $2@openmind.mit.edu:/om2/user/$2/data/patch_data_cluster
