@@ -22,4 +22,4 @@ for file in /home/$USER/patch/measure/*; do
 done
 
 # 4. Make log folder to store analysis logs (i.e. the files containing MATLAB output for each tracking job).
-mkdir /om2/user/$USER/log/
+mkdir ~/log/
