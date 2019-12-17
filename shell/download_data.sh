@@ -2,8 +2,6 @@
 # Download finalTracks files for a given date onto a local machine from cluster.
 # Argument $1 is the date of recording in YYYYMMDD format
 # Argument $2 is the user's openmind username (same as Kerberos username)
-# Rename folders on local machine to make room for split folders from cluster
-# Copy to local machine all files from that date on cluster except for .avi files
 echo "Transfer files for $1 (y/n)?"
 read transfer
 if [ $transfer == "y" ]; then

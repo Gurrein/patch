@@ -4,15 +4,16 @@
 # 2. Remount hard drive (necessary if it has been unplugged to collect data from rig manually; ideally data is
 #    transferred using scp, avoiding unplugging the drive ever)
 # 3. Copy data to the cluster for analysis
-
 # Argument $1 is the date the data was recorded in YYYYMMDD format
 # Argument $2 is the openmind username (same as Kerberos username) for the files to be copied to
 
 # Get Windows username
-username=`cmd.exe /c "echo %USERNAME%"` # launches Windows cmd prompt and returns the username
+username=`cmd.exe /c "echo %USERNAME%"`; # launches Windows cmd prompt and returns the username
 
 # 1. Select ROIs locally
 PROCEED="n"
+echo
+echo
 echo "Select ROIs? (y/n)"
 read PROCEED
 if [ $PROCEED == "y" ]; then
