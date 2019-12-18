@@ -9,7 +9,7 @@ for file in ~/patch/shell/*; do # Add all shell scripts to bin
 done
 
 # 2. Add that bin file to path
-mv ~/patch/shell/.bash_profile ~/ # This file denotes the path to the bin that we will add to the user's default path
+cp ~/patch/shell/.bash_profile ~/ # This file denotes the path to the bin that we will add to the user's default path
 source ~/.bash_profile # Activate changes
 
 # 3. Make folders for data and move all measureCam files there
