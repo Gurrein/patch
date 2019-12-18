@@ -7,9 +7,6 @@
 # Argument $1 is the date the data was recorded in YYYYMMDD format
 # Argument $2 is the openmind username (same as Kerberos username) for the files to be copied to
 
-# Get Windows username
-username=`cmd.exe /c "echo %USERNAME%"`; # launches Windows cmd prompt and returns the username
-
 # 1. Select ROIs locally
 PROCEED="n"
 echo
@@ -22,7 +19,7 @@ if [ $PROCEED == "y" ]; then
         let latest_version_index=$num_versions-1
         latest_version_path=${mat_versions[$latest_version_index]}
         latest_version=${latest_version_path##*/}
-	/mnt/c/"Program Files"/MATLAB/$latest_version/bin/matlab.exe -r "addpath(genpath('C:/Users/$username/Desktop/patch')), getROIs('$1'), quit" # Launches newest version of MATLAB installed on the computer.
+	/mnt/c/"Program Files"/MATLAB/$latest_version/bin/matlab.exe -r "addpath(genpath('\\\\wsl$\\Ubuntu\\home\\$USER\\patch')), getROIs('$1'), quit" # Launches newest version of MATLAB installed on the computer.
 	PROCEED="n"
 	while [ $PROCEED != "y" ]
 	do
