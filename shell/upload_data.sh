@@ -10,7 +10,6 @@
 # 1. Select ROIs locally
 PROCEED="n"
 echo
-echo
 echo "Select ROIs? (y/n)"
 read PROCEED
 if [ $PROCEED == "y" ]; then
@@ -23,6 +22,7 @@ if [ $PROCEED == "y" ]; then
 	PROCEED="n"
 	while [ $PROCEED != "y" ]
 	do
+		echo
 		echo "Finished selecting fields? (y/n)"
 		read PROCEED
 	done
@@ -30,6 +30,7 @@ fi
 
 # 2. Mount hard drive (assuming it was unplugged to download vids from behavior computers)
 PROCEED="n"
+echo
 echo "Remount? (y/n)"
 read PROCEED
 if [ $PROCEED == "y" ]; then
@@ -40,5 +41,7 @@ if [ $PROCEED == "y" ]; then
 fi
 
 # 3. Copy over folders containing video files and new fields.mat files
+echo
 echo "Copying $1 to $2"
+echo
 scp -r /mnt/g/patch_data_local/$1 $2@openmind.mit.edu:/om2/user/$2/data/patch_data_cluster
