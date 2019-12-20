@@ -3,7 +3,7 @@
 # Distributed splitting
 mkdir /om2/user/$USER/data/patch_data_cluster/$1_unsplit
 for subfolder in /om2/user/$USER/data/patch_data_cluster/$1/*; do
-	sbatch /home/$USER/patch/shell/subsplit $1 $(basename $subfolder)
+	sbatch /home/$USER/patch/shell/subsplit.sh $1 $(basename $subfolder)
 done
 sleep 5h # Splitting takes approximately this long. There's certainly a better way to do this
 	 # without hard-coding, but I haven't invested the time!

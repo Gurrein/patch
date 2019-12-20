@@ -62,7 +62,7 @@ if [ $repro == "y" ]; then
 			rm $video/*.working
 		fi
         	if [ ! -e $video/*finalTracks* ]; then
-			sbatch /home/$USER/patch/shell/subtrack $1 $(basename $video)
+			sbatch /home/$USER/patch/shell/subtrack.sh $1 $(basename $video)
         	fi
 	done
 fi

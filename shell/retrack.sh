@@ -9,4 +9,4 @@ for video in /om2/user/$USER/data/patch_data_cluster/$1/*; do
 	fi
 done
 
-sbatch /home/$USER/patch/shell/process $1
+sbatch /home/$USER/patch/shell/track.sh $1
