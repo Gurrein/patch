@@ -6,7 +6,7 @@ function process(folder, subfolder, user)
 numworms = [10 200];
 
 % Get Tracks
-cd(sprintf('/om/user/%s/data/patch_data_cluster/%s/%s', user, folder, subfolder));
+cd(sprintf('/om2/user/%s/data/patch_data_cluster/%s/%s', user, folder, subfolder));
 [~, folder_name] = fileparts(pwd); % name of video same as folder name but with .avi extension
     vid = {folder_name};
     cam = char(vid{1});
