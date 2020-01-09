@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=track
-#SBATCH --output=~/log/track_%j.txt
+#SBATCH --output=/home/%u/log/track_%j.txt
 #SBATCH -N 1
 #SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=10000

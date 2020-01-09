@@ -5,7 +5,7 @@ function splitter(folder, subfolder, user)
     warning('off', 'MATLAB:colon:nonIntegerIndex') % Known non-integer indeces in function writeVids
 
     % Find num videos in folder
-    cd (sprintf('/om/user/%s/data/patch_data_cluster/%s/%s', user, folder, subfolder))
+    cd (sprintf('/om2/user/%s/data/patch_data_cluster/%s/%s', user, folder, subfolder))
     v = VideoReader(sprintf('%s.avi', subfolder)); %#ok, Can't move this out of the loop, don't rly care ab 'better performance' here
     vidFrame = readFrame(v);
     nameParts = split(subfolder, '_'); % parse
@@ -15,7 +15,7 @@ function splitter(folder, subfolder, user)
     end
 
     fields = load(sprintf('%s_%s_ROIs.mat', nameParts{end-1}, nameParts{end}));
-    fields = fields.fields; % just hacking the variables so that the rest of the script can be preserved
+    fields = fields.ROIs; % just hacking the variables so that the rest of the script can be preserved
 
     for s = 1:numFields
         vidName = makeVidName(nameParts, strains{s}); % parses multi-strain file names by underscores to make new file name for each strain
