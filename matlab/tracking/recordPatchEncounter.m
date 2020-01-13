@@ -8,7 +8,7 @@ persistent searchPath;
 persistent v;
 
 if isempty(searchPath)
-    searchPath = 'G:/behavior/'; % Hard-coded, replace with own video file location
+    searchPath = 'G:/patch_data_local/';
 end
 preTime = 20;
 endTime = 60;
