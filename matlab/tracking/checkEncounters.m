@@ -1,11 +1,11 @@
 function checkEncounters(date)
 memBuffer = 0.25;% out of 1
 
-cd(sprintf('G:/behavior/%s', date));
+cd(sprintf('G:/patch_data_local/%s', date));
 
 %%%%% DELET
 %tracks = 
-load(sprintf('G:/behavior/%s/uncheckedTracks_%s', date, date)); %#ok Load tracks file into workspace from HDD
+load(sprintf('G:/patch_data_local/%s/uncheckedTracks_%s', date, date)); %#ok Load tracks file into workspace from HDD
 
 %%%%% DELET
 %tracks = tracks.tracks;
@@ -84,7 +84,7 @@ disp('Saving...');
 % eval(sprintf('tracks_%s = tracks', name))
 % eval(sprintf('save(''allTracks_%s_%i.mat'', ''tracks_%s'')', name, num, name));
 
-goodname = sprintf('G:/behavior/%s/allTracks_%s', date, date);
+goodname = sprintf('G:/patch_data_local/%s/allTracks_%s', date, date);
 save(goodname, 'tracks');
 end
 
